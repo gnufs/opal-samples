@@ -4,11 +4,11 @@ Opal Samples
 What are these?
 ---------------
 
-Code samples I came up with during my study of Opal in Berlin Institute of Technology. (Basics of most classes were developed during lectures, though.)
+Code samples I came up with during my study of Opal at Berlin Institute of Technology.
 
-[Opal](http://projects.uebb.tu-berlin.de/opal/trac) is a functional language, developed and used mainly at BIT.
+[Opal](http://projects.uebb.tu-berlin.de/opal/trac) is a functional algebraic language, developed and used mainly at BIT.
 
-Other code samples can also be found on http://code.google.com/p/opal-examples/
+Other code samples can also be found on [http://code.google.com/p/opal-examples/].
 
 License
 ========
