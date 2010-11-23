@@ -1,0 +1,15 @@
+SIGNATURE DenoUebung
+
+IMPORT Denotation ONLY denotation
+IMPORT Char ONLY char
+
+
+FUN concat: denotation ** denotation -> denotation
+FUN lowerFirst: denotation -> denotation
+
+-- Hausaufgabe
+FUN splitHalf: denotation -> denotation ** denotation
+FUN initials: denotation ** denotation -> denotation
+
+-- Freiwillige Hausaufgabe
+FUN replace: denotation ** char ** char -> denotation

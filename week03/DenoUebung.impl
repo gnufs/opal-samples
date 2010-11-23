@@ -1,0 +1,66 @@
+IMPLEMENTATION DenoUebung
+
+IMPORT Char COMPLETELY
+IMPORT Nat COMPLETELY
+IMPORT Denotation COMPLETELY
+
+
+-- FUN concat: denotation ** denotation -> denotation
+DEF concat == \\d1, d2. d1 ++ d2
+
+-- oder
+-- DEF concat == ++
+
+
+
+-- FUN upd: nat ** char ** denotation -> denotation
+-- FUN !: denotation ** nat -> char
+
+-- FUN lowerFirst: denotation -> denotation
+DEF lowerFirst == \\d. upd(0,lower(!(d,0)),d)
+
+
+
+-- Hausaufgabe
+
+-- FUN splitHalf: denotation -> denotation ** denotation
+DEF splitHalf == \\input.
+                 (
+                 IF #(input) < 2 
+                    THEN (input, empty)
+                 ELSE 
+                    (slice(input, 0, i), slice(input, i + 1, #(input)))
+                    WHERE
+                        i == (#(input) - 1) / 2
+                 FI
+                 )
+
+-- FUN initials: denotation ** denotation -> denotation
+DEF initials == \\vorname, nachname.
+                (
+                ++(vn, nn)
+                WHERE
+                    vn == ++(%(upper(!(vorname,0))),".")
+                    nn == ++(%(upper(!(nachname,0))),".")
+                )
+
+
+-- Freiwillige Hausaufgabe
+
+-- FUN replace: denotation ** char ** char -> denotation
+DEF replace == \\input, a, b.
+               scan(input, #(input)-1, a, b)
+FUN scan: denotation ** nat ** char ** char -> denotation
+DEF scan == \\input, i, a, b.
+                IF i = 0
+                    THEN 
+                        IF !(input,i) = a
+                            THEN upd(i, b, input)
+                        ELSE 
+                            input
+                        FI
+                IF !(input,i) = a
+                    THEN
+                       scan(upd(i, b, input), i - 1, a, b)
+                    ELSE scan(input, i-1, a, b)
+                FI

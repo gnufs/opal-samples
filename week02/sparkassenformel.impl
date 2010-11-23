@@ -1,0 +1,11 @@
+IMPLEMENTATION sparkassenformel
+
+IMPORT Real COMPLETELY
+
+FUN q: real -> real
+DEF q == \\p.
+         1 + (p / !"100")
+
+FUN k: real ** real ** real ** real -> real
+DEF k == \\k0,p,r,n.
+         (k0 * pow(q(p),n)) + (r * ((pow(q(p),n) - 1)/(q(p) - 1)))

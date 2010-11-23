@@ -1,0 +1,32 @@
+IMPLEMENTATION LeapYear
+
+IMPORT Nat COMPLETELY
+IMPORT Bool COMPLETELY
+
+
+-- FUN leap?: nat -> bool
+DEF leap? == \\y.
+		IF ((y % ("400"!)) = 0 ) THEN true
+			ELSE IF ((y % 100) = 0) THEN false
+				ELSE IF ((y % 4) = 0 ) THEN true
+					ELSE false
+				FI
+			FI
+		FI
+
+
+-- FUN leapDijkstra?: nat -> bool
+DEF leapDijkstra? == \\y.
+		IF ((y % ("400"!)) = 0 ) THEN true
+		IF ((y % 100) = 0) and ((y % ("400"!)) |= 0 ) THEN false
+		IF ((y % 4) = 0 ) and ((y % 100) |= 0) THEN true
+		IF ((y % 4) |= 0 ) THEN false  -- OTHERWISE false
+		FI
+
+
+-- FUN leapNoIf?: nat -> bool
+DEF leapNoIf? == \\y.
+		( ((y % ("400"!)) = 0 ) or (((y % 100) |= 0) and ((y % 4) = 0 ) ) )
+
+
+ 

@@ -1,0 +1,9 @@
+SIGNATURE Sort
+
+IMPORT Real ONLY real
+
+
+FUN sort: real ** real ** real -> real ** real ** real
+
+-- Hausaufgabe
+FUN sortDijkstra: real ** real ** real -> real ** real ** real

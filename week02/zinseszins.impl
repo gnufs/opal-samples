@@ -1,0 +1,11 @@
+IMPLEMENTATION zinseszins
+
+IMPORT Real COMPLETELY
+
+FUN q: real -> real
+DEF q == \\p.
+         1 + (p / !"100")
+
+FUN k: real ** real ** real -> real
+DEF k == \\k0,p,n.
+          k0 * pow(q(p),n)

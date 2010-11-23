@@ -1,0 +1,13 @@
+SIGNATURE LetInWhere
+
+IMPORT Real ONLY real
+
+
+FUN pq: real ** real -> real ** real
+FUN pqWhere: real ** real -> real ** real
+
+-- Hausaufgabe
+FUN intersectionPoint: real ** real ** real ** real -> real ** real
+
+-- Freiwillige Hausaufgabe
+FUN coordinateToIntersectionPoint: real ** real ** real ** real ** real ** real ** real ** real -> real ** real

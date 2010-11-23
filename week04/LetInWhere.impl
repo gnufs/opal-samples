@@ -1,0 +1,46 @@
+IMPLEMENTATION LetInWhere
+
+
+IMPORT Real COMPLETELY
+
+
+-- FUN pq: real ** real -> real ** real
+DEF pq == \\p,q.
+		LET 
+			m == p/2
+			n == sqrt((m^2) - q)
+		IN
+			(-(m) + n , -(m) - n)
+
+-- FUN pqWhere: real ** real -> real ** real
+DEF pqWhere == \\p,q.
+		(
+		(-(m) + n, -(m) - n)
+		WHERE 
+			m == p/2
+			n == sqrt((m^2) - q)
+			l == n + m
+		)
+
+-- Hausaufgabe
+
+-- FUN intersectionPoint: real ** real ** real ** real -> real ** real
+DEF intersectionPoint == \\m1,n1,m2,n2.
+        LET
+            x == (n2 - n1) / (m1 - m2)
+            y == (m1 * x) + n1
+        IN
+            (x,y)
+            
+-- Freiwillige Hausaufgabe
+
+-- FUN coordinateToIntersectionPoint: real ** real ** real ** real ** real ** real ** real ** real -> real ** real
+DEF coordinateToIntersectionPoint == \\x1,y1,x2,y2,x3,y3,x4,y4.
+        LET
+            m1 == (y2 - y1) / (x2 - x1)
+            n1 == y1 - (m1 * x1)
+            m2 == (y4 - y3) / (x4 - x3)
+            n2 == y3 - (m2 * x3)
+        IN
+            intersectionPoint(m1,n1,m2,n2)
+        

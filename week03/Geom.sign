@@ -1,0 +1,9 @@
+SIGNATURE Geom
+
+IMPORT Real ONLY real
+
+
+FUN allgPyramidenVolumen: real ** real -> real
+
+--Hausaufgabe
+FUN pyramidenVolumen: real ** real ** real ** real ** real -> real

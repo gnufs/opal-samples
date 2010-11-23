@@ -1,0 +1,28 @@
+IMPLEMENTATION TriangleArea
+
+IMPORT Real COMPLETELY
+IMPORT Bool COMPLETELY
+IMPORT Heron COMPLETELY
+
+
+-- FUN checkTriangleAreaArgs: real ** real ** real -> bool
+DEF checkTriangleAreaArgs == \\a,b,c.
+		IF (a <= 0)  or (b <= 0 ) or (c <= 0)
+			or (a >= (b + c) ) or (b >= (a + c)) or (c >= (a + b))
+			THEN false
+			ELSE true
+		FI
+
+-- FUN triangleArea: real ** real ** real -> bool ** real
+DEF triangleArea == \\a,b,c.
+		LET 
+			valid == checkTriangleAreaArgs(a,b,c)
+		IN
+			IF (valid) THEN
+				(true, heron(a,b,c))
+			ELSE -- valid = false
+				(false, 0)
+			FI
+
+
+

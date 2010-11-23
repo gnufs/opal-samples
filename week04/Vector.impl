@@ -1,0 +1,33 @@
+IMPLEMENTATION Vector
+
+IMPORT Real COMPLETELY
+
+
+-- FUN add: real ** real ** real ** real -> real ** real
+DEF add == \\x1, y1, x2, y2. (x1 + x2, y1 + y2)
+
+-- FUN mult: real ** real ** real -> real ** real
+DEF mult == \\x1, y1, s. (s*x1,s*y1)
+
+-- FUN mult: real ** real ** real ** real -> real
+DEF mult == \\x1, y1, x2, y2. (x1 * x2 + y1 * y2)
+
+-- FUN abs: real ** real -> real
+DEF abs == \\x1, y1. sqrt(mult(x1, y1, x1, y1))
+
+
+--Hausaufgabe
+
+-- FUN sub: real ** real ** real ** real -> real ** real
+DEF sub == \\x1, y1, x2, y2. (x1 -x2, y1 - y2)
+
+-- FUN angle: real ** real ** real ** real -> real
+DEF angle == \\x1, y1, x2, y2. ( deg( 
+                                    arccos( 
+                                        mult(x1,y1,x2,y2) / ( abs(x1,y1) * abs(x2,y2) ) 
+                                    ) 
+                                 ) 
+                               )
+
+-- FUN norm: real ** real -> real ** real
+DEF norm == \\x1, y1. (x1 / abs(x1,y1), y1 / abs(x1,y1))

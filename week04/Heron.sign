@@ -1,0 +1,5 @@
+SIGNATURE Heron
+
+IMPORT Real ONLY real
+
+FUN heron : real ** real ** real -> real

@@ -1,0 +1,55 @@
+IMPLEMENTATION TriangleVolume
+
+-- OPAL Libraries
+IMPORT Real COMPLETELY
+IMPORT Bool COMPLETELY
+IMPORT AnonPair COMPLETELY
+IMPORT Denotation COMPLETELY
+IMPORT RealConv COMPLETELY
+
+
+-- Local Libraries
+IMPORT Geom COMPLETELY
+IMPORT TriangleArea COMPLETELY
+
+
+-- FUN checkTriangleVolumeArgs: real ** real ** real ** real -> bool
+DEF checkTriangleVolumeArgs == \\a,b,c,h.
+        IF (checkTriangleAreaArgs(a,b,c)) THEN
+            IF (h > 0) THEN
+                true
+            ELSE
+                false
+            FI
+        ELSE false 
+        FI
+
+-- FUN triangleVolume: real ** real ** real ** real -> bool ** real
+DEF triangleVolume == \\a,b,c,h.
+        LET
+            valid == checkTriangleVolumeArgs(a,b,c,h)
+        IN
+            IF (valid) THEN
+                (
+                (true, volume)
+                WHERE
+                    G == 2nd(triangleArea(a,b,c))
+                    volume == allgPyramidenVolumen(G,h)
+                )
+            ELSE
+                (false, 0)
+			FI
+
+-- FUN showPyramidVolume: real ** real ** real ** real -> denotation
+DEF showPyramidVolume == \\a,b,c,h.
+        IF (1st(triangleVolume(a,b,c,h))) THEN
+            ++("The volume of pyramid with basis side lengths ", 
+                ++(``(a), ++(", ", ++(``(b), ++(" and ", ++(``(c), ++(" and the height ", ++(``(h), 
+                    ++(" is ", ``(2nd(triangleVolume(a,b,c,h))))))))))
+                )
+            )
+        ELSE
+            ++("There is no pyramid with basis side lengths ", 
+                ++(``(a), ++(", ", ++(``(b), ++(" and ", ++(``(c), ++(" and height ", ``(h)))))))
+            )
+        FI

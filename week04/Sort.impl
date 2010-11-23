@@ -1,0 +1,40 @@
+IMPLEMENTATION Sort
+
+IMPORT Real COMPLETELY
+
+
+-- FUN sort: real ** real ** real -> real ** real ** real
+DEF sort == \\x,y,z.
+		IF (x <= y) THEN
+			IF (y <= z) THEN
+				(x,y,z)
+			ELSE -- y > z
+				IF (x <= z) THEN
+					(x,z,y)
+				ELSE -- x > z
+					(z,x,y)
+				FI
+			FI
+		ELSE -- x > y
+			IF (x <= z) THEN
+				(y,x,z)
+			ELSE -- x > z
+				IF (y <= z) THEN
+					(y,z,x)
+				ELSE -- y > z)
+					(z,y,x)
+				FI
+			FI
+		FI
+
+-- Hausaufgabe
+
+-- FUN sortDijkstra: real ** real ** real -> real ** real ** real
+DEF sortDijkstra == \\x,y,z.
+        IF (x <= y) and (y <= z) THEN (x,y,z)
+        IF (x <= z) and (z < y) THEN (x,z,y)
+        IF (y < x) and (x <= z) THEN (y,x,z)
+        IF (y <= z) and (z < x) THEN (y,z,x)
+        IF (z < x) and (x <= y) THEN (z,x,y)
+        IF (z < y) and (y < x) THEN (z,y,x)
+        FI

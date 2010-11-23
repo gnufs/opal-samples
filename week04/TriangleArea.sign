@@ -1,0 +1,11 @@
+SIGNATURE TriangleArea
+
+IMPORT Real ONLY real
+IMPORT Bool ONLY bool
+
+
+
+
+FUN checkTriangleAreaArgs: real ** real ** real -> bool
+FUN triangleArea: real ** real ** real -> bool ** real
+

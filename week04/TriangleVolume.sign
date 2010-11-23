@@ -1,0 +1,8 @@
+SIGNATURE TriangleVolume
+
+IMPORT Real ONLY real
+IMPORT Bool ONLY bool
+
+FUN checkTriangleVolumeArgs: real ** real ** real ** real -> bool
+FUN triangleVolume: real ** real ** real ** real -> bool ** real
+FUN showPyramidVolume: real ** real ** real ** real -> denotation

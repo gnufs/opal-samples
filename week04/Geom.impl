@@ -1,0 +1,16 @@
+IMPLEMENTATION Geom
+
+IMPORT Real COMPLETELY
+IMPORT Vector COMPLETELY
+
+
+DEF allgPyramidenVolumen == \\G, h. (1/3) * G * h
+
+--Hausaufgabe
+
+-- FUN pyramidenVolumen: real ** real ** real ** real ** real -> real
+DEF pyramidenVolumen == \\x1, y1, x2, y2, h. (
+                                              allgPyramidenVolumen(
+                                                 abs(x1,y1) * abs(x2,y2) * sin(angle(x1,y1,x2,y2)), h
+                                              )
+                                             )

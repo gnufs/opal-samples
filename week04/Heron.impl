@@ -1,0 +1,9 @@
+IMPLEMENTATION Heron
+
+IMPORT Real COMPLETELY
+
+FUN s : real ** real ** real -> real
+DEF s(a,b,c) == (a + b + c) / 2
+
+DEF heron(a,b,c) == 
+      sqrt(s(a,b,c) * (s(a,b,c) - a) * (s(a,b,c) - b) * (s(a,b,c) - c))
