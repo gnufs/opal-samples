@@ -1,0 +1,19 @@
+IMPLEMENTATION Reverse
+
+IMPORT Nat COMPLETELY
+IMPORT Denotation COMPLETELY
+
+FUN reverse: denotation -> denotation
+DEF reverse == \\input.
+                LET
+                        (a,b) == scan("",input)
+                IN
+                        a
+                
+FUN scan: denotation ** denotation -> denotation ** denotation
+DEF scan == \\rev,input.
+                IF (#(input) > 0) THEN
+                        scan( ++(rev,slice(input,(#(input)-1),(#(input)-1))), delete(input,(#(input)-1),(#(input)-1)) )
+                ELSE
+                        (rev,input)
+                FI

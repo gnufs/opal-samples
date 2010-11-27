@@ -1,0 +1,42 @@
+IMPLEMENTATION TipTopSpiel
+
+IMPORT Real COMPLETELY
+IMPORT Bool COMPLETELY
+IMPORT Denotation COMPLETELY
+IMPORT Char COMPLETELY
+
+FUN tiptop: real ** real ** real -> denotation
+DEF tiptop == \\distance,shoeTip,shoeTop.
+                LET
+                        shoeTipL == shoeTip * !"0.666"
+                        shoeTopL == shoeTop * !"0.666"
+                IN
+                        IF (shoeTipL < shoeTopL) THEN
+                                (
+                                d
+                                WHERE
+                                        (a,b,c,d) == tip(distance,shoeTipL,shoeTopL,"")
+                                )
+                        ELSE
+                                (
+                                d
+                                WHERE
+                                        (a,b,c,d) == top(distance,shoeTipL,shoeTopL,"")
+                                )
+                        FI
+                        
+FUN tip: real ** real ** real ** denotation-> real ** real ** real ** denotation
+DEF tip == \\distance,shoeTipL,shoeTopL,deno.
+                IF (distance <= 0) THEN
+                        (distance,shoeTipL,shoeTopL,++(deno,++(%(newline),"Ouch! Player B lost.")))
+                ELSE
+                        top((distance - shoeTipL),shoeTipL,shoeTopL,++(deno,"Tip."))
+                FI
+
+FUN top: real ** real ** real ** denotation-> real ** real ** real ** denotation
+DEF top == \\distance,shoeTipL,shoeTopL,deno.
+                IF (distance <= 0) THEN
+                        (distance,shoeTipL,shoeTopL,++(deno,++(%(newline),"Ouch! Player A lost.")))
+                ELSE
+                        tip((distance - shoeTopL),shoeTipL,shoeTopL,++(deno,"Top."))
+                FI
