@@ -1,0 +1,8 @@
+SIGNATURE Hof
+
+IMPORT Nat ONLY nat
+
+-- prodFun(f,start,ende) 
+-- berechnet das Produkt f(start)*f(start+1)*...*f(ende)
+FUN prodFun: (nat -> nat) ** nat ** nat -> nat
+

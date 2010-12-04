@@ -17,3 +17,7 @@ DEF scan == \\rev,input.
                 ELSE
                         (rev,input)
                 FI
+
+FUN reverseE: denotation -> denotation
+DEF reverseE == \\input.
+                
